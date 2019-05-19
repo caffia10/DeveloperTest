@@ -38,12 +38,16 @@ export default {
   },
   computed: {
     imageHeight() {
+      let result = false;
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return false;
+          result = false;
+          break;
         default:
-          return true;
+          result = true;
+          break;
       }
+      return result;
     }
   }
 };

@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using WebApiTest.Interface;
 using WebApiTest.Models;
 
@@ -11,11 +10,12 @@ namespace WebApiTest.Logic
     public class ContactsLogic : IContactsLogic
     {
         private int lastGeneratedID;
-        private readonly ConcurrentDictionary<int,ContactModel> allContacts = new ConcurrentDictionary<int, ContactModel>();
+        private readonly ConcurrentDictionary<int, ContactModel> allContacts = new ConcurrentDictionary<int, ContactModel>();
 
         public void AddOrUpdateContact(ContactModel contact)
         {
-            allContacts.AddOrUpdate(contact.Id, contact,(key, existingContact) => {
+            allContacts.AddOrUpdate(contact.Id, contact, (key, existingContact) =>
+            {
                 if (contact != existingContact)
                     throw new ArgumentException("Duplicate contact are not allowed: {0}.", contact.Name);
 
@@ -32,7 +32,7 @@ namespace WebApiTest.Logic
 
         public void DeleteContact(ContactModel contact)
         {
-            allContacts.Remove(contact.Id,out contact);
+            allContacts.Remove(contact.Id, out contact);
         }
 
         public IEnumerable<ContactModel> RetriveAllContacts()

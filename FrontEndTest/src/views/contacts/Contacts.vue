@@ -102,8 +102,6 @@ export default {
           this.objectToContact(x)
         );
         this.allcontacts = allDisorderedContacts.sort(this.orderByName);
-
-        console.log(this.allcontacts);
       });
   },
   computed: {
@@ -120,29 +118,39 @@ export default {
     },
 
     imageHeight() {
+      let result = false;
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return false;
+          result = false;
+          break;
         case "sm":
-          return false;
+          result = false;
+          break;
         case "md":
-          return true;
+          result = true;
+          break;
         case "lg":
-          return true;
+          result = true;
+          break;
         case "xl":
-          return true;
+          result = true;
+          break;
       }
+      return result;
     },
 
     maxDialogWidth() {
+      let result = 0;
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return 300;
+          result = 300;
+          break;
         case "sm":
-          return 500;
-        default:
-          return 0;
+          result = 500;
+          break;
       }
+
+      return result;
     }
   }
 };

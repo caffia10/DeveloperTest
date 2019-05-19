@@ -127,7 +127,6 @@ export default {
     },
 
     deleteContact: function(contact) {
-      console.log(contact);
       ContactAPIService.getInstance().deleteContact(contact);
     },
 
@@ -136,7 +135,6 @@ export default {
     },
 
     saveSelectedContact: function(contact) {
-      console.log("selecciona");
       this.selectedContact = contact;
     },
 
@@ -195,12 +193,16 @@ export default {
   },
   computed: {
     imageHeight() {
+      let result = false;
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return true;
+          result = true;
+          break;
         default:
-          return false;
+          result = false;
+          break;
       }
+      return result;
     }
   },
   mounted() {

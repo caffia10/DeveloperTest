@@ -99,7 +99,7 @@ export default {
       type: Function,
       required: true
     },
-    haveSelectedValue: false
+    haveSelectedValue: Boolean
   },
   data() {
     return {

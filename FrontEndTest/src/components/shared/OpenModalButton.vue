@@ -60,7 +60,7 @@ export default {
     titleModal: null,
     onAcceptClick: { type: Function },
     model: null,
-    isEdit: false,
+    isEdit: Boolean,
     instanceModel: { type: Function },
     getSelectedModel: { type: Function },
     enableAction: null
@@ -77,7 +77,6 @@ export default {
     acceptClick: async function() {
       this.isSaving = true;
       this.$nextTick(() => {
-        console.log(this.modelChanged);
         this.onAcceptClick(this.modelChanged);
         this.dialog = false;
       });

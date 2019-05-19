@@ -13,11 +13,11 @@
 export default {
   props: {
     model: null,
-    isEdit: false,
+    isEdit: Boolean,
     getSelectedModel: { type: Function },
-    isOpenModal: false,
-    isSaving: false,
-    isInvalid: false
+    isOpenModal: Boolean,
+    isSaving: Boolean,
+    isInvalid: Boolean
   },
   methods: {
     onOpen: function() {

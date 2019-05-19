@@ -16,8 +16,8 @@
 <script>
 export default {
   props: {
-    number: "",
-    type: ""
+    number: String,
+    type: String
   }
 };
 </script>

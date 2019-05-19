@@ -105,19 +105,16 @@
   </v-form>
 </template>
 
-
 <script>
-import { ContactModel } from "@/models/ContactModel";
-
 export default {
   props: {
     model: null,
-    isEdit: false,
+    isEdit: Boolean,
     instanceModel: { type: Function },
     getSelectedModel: { type: Function },
-    isOpenModal: false,
-    isSaving: false,
-    isInvalid: false
+    isOpenModal: Boolean,
+    isSaving: Boolean,
+    isInvalid: Boolean
   },
   data() {
     return {
@@ -159,7 +156,6 @@ export default {
       }
     },
     valid: function(newValue) {
-      console.log(newValue);
       this.$emit("update:isInvalid", newValue);
     }
   }
